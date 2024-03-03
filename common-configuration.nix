@@ -59,6 +59,11 @@
   };
   environment.variables.EDITOR = "nvim";
 
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

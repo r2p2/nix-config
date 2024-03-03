@@ -31,6 +31,9 @@
     pulse.enable = true;
   };
 
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
 

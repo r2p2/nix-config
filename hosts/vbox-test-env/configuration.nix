@@ -35,19 +35,27 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # Enable the Gnome Desktop Environment
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+  # enable gnome systray
+  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
+  # ensure gnome-settings-daemon udev rules are enabled - why?
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  # enable useful services
+  services.gnome.gnome-user-share.enable = true;
+  programs.seahorse.enable = true;
+  services.gnome.gnome-browser-connector.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
     layout = "de";
     xkbVariant = "";
   };
-
   # Configure console keymap
   console.keyMap = "de";
 

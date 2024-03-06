@@ -17,3 +17,7 @@ Rebuild and switch
 1. Update files
 2. `sudo nixos-rebuild switch`
 3. If successfull, commit changes to git
+
+# Home-Manager
+
+Documentation for possible options: https://nix-community.github.io/home-manager/options.xhtml
